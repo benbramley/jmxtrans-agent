@@ -294,6 +294,30 @@ Example complete output writer configuration:
 </outputWriter>
 ```
 
+### SplunkHECOutputWriter Details
+
+**This writer is currently in beta, it might have bugs and the behavior and options might change**.
+
+This writer sends metrics to the Splunk Http Event Collector (http://dev.splunk.com/view/event-collector/SP-CAAAE6M).
+
+Example writer configuration:
+```xml
+<outputWriter class="org.jmxtrans.agent.splunk.SplunkHECOutputWriter">
+    <enabled>true</enabled>
+    <url>http://localhost:8088</url>
+    <token>00000-00000-00000-00000</token>
+    <index>main</index>
+    <source>jmx_trans</source>
+    <sourcetype>jmx</sourcetype>
+    <hostname>#hostname#</hostname>
+    <appid>myapp</appid>
+    <jvmid>myjvm</jvmid>
+</outputWriter>
+```
+
+appid and jvmid will be added as fields to the metric events to identify which JVM and application the metrics are coming from.
+
+Note - if you have enabled SSL on the HEC you will need to provide a valid certificate otherwise the writer will fail.
 
 ### Sample of ConsoleOutputWriter
 
