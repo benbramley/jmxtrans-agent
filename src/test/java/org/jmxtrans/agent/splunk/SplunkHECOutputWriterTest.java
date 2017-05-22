@@ -29,7 +29,7 @@ public class SplunkHECOutputWriterTest {
     public void simpleRequest() throws Exception {
         Map<String, String> s = new HashMap<>();
         s.put("url", "http://localhost:" + wireMockRule.port());
-        s.put("token", "6F0D57E5-D40A-4B18-B110-3FF2A22A9DB0");
+        s.put("token", "00000000-0000-0000-0000-000000000000");
         s.put("index", "main");
         s.put("source", "jmx_trans");
         s.put("sourcetype", "jmx");
